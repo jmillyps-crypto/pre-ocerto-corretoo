@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <!-- HEADER / CABEÇALHO -->
+    <header>
+        <img src="{{ url_for('static', filename='img/icone_logo.png') }}">
+        <h1>Preço<span>Certo</span></h1>
+        <p>PRECIFICAÇÃO AFETIVA</p>
+        <nav>
+            <a href="{{url_for('logout')}}" >Sair</a>
+        </nav>
+        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+        {% endif %}
+        {% endwith %} -->
+    </header>
+    <!-- BARRA LATERAL - MENU -->
+    <main>
+        <div class="barra-botoes">
+            <a><img src="{{ url_for('static', filename='img/icone_casa.png') }}">Início</a>
+            <a><img src="{{ url_for('static', filename='img/icone_caixa.png') }}">Insumos</a>
+            <a><img src="{{ url_for('static', filename='img/icone_tocapng.png') }}">Produtos</a>
+            <a><img src="{{ url_for('static', filename='img/icone_engrenagem.png') }}"> Configuração</a>
+            <div>
+                <img src="{{ url_for('static', filename='img/folhinhapng.png') }}" class="folhinha">
+
+                <p>Boas escolhas hoje,melhores resultados amanhã!</p>
+            </div>
+            <img src="{{ url_for('static', filename='img/toca.png') }}">
+        </div>
+
+        <!-- CONTEUDO A PARTIR DO OLA -->
+        <div class="conteudo">
+            <h3>Olá, {{ session['usuario_nome'] }}</h3>
+                <P>Aqui está o resumo do seu negócio </P>
+                <div class="">
+
+                    <a href="{{url_for('perfil', id=id_usuario) }}" class="editar-perfil">Editar Perfil</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </main>
+    <!-- FOOTER / RODAPÉ -->
+    <footer>
+        <div class="logo-footer">
+            <img src="{{ url_for('static', filename='img/chapeu.png') }}">
+            <div>
+                <h2>Preço<span>Certo</span></h2>
+                <p>PRECIFICAÇÃO AFETIVA</p>
+            </div>
+            <span class="frase">Precificação afetiva para negócios reais.</span>
+        </div>
+
+        <span>© 2026 PreçoCerto</span>
+    </footer>
+</body>
+</html>
